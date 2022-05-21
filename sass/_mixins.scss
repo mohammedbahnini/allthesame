@@ -1,0 +1,32 @@
+@mixin extra-small{
+    @media screen and (max-width : 768px){
+        @content;
+    }
+}
+
+// mobile mixin
+@mixin mobile{
+    @media screen and (max-width : 992px){
+        @content;
+    }
+}
+
+
+@mixin large{
+    @media screen and (max-width : 1023.9px){
+        @content ;
+    }
+}
+
+
+@mixin extra-large{
+    @media screen and (max-width : 1199.9px){
+        @content ;
+    }
+}
+
+@mixin double-extra-large{
+    @media screen and (max-width : 1439.9px){
+        @content ;
+    }
+}

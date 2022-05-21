@@ -1,0 +1,58 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// restes
+* , *::after , *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body{
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+// global rules
+.container{
+     width: 80%;
+     max-width: 77rem;
+     margin-left: auto;
+     margin-right: auto;
+     @include mobile{
+         width: 80%;
+         margin-left: auto;
+        margin-right: auto;
+     }
+}
+.big-text{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 4rem;
+    line-height: 4.7rem;
+}
+h1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3.5rem;
+}
+h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+h3{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.3rem;
+}
+.clear-fix{
+    clear: both;
+}

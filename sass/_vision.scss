@@ -1,0 +1,192 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.vision-wrapper{
+    padding: 9rem 0;
+    position: relative;
+    margin-top: 9rem; 
+    @include mobile{
+        padding: 0;
+        margin-top: 6.5rem;  
+    }
+    .container{
+        position: relative;
+        height: 51.81rem;
+        display: flex;
+        height: auto;
+
+        @include mobile{
+            flex-direction: column;
+            align-items: center;
+            padding-top: 7.5rem;
+            justify-content: end;
+            width: 90%;
+        }
+        .gradient-title{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(calc(-50% + .25em)) translateY(-50%);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.2em;
+            font-size: 8rem;
+            letter-spacing: .5em;
+            white-space: nowrap;
+            z-index: 2;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%);
+            background-clip : text;
+            color : transparent ;
+            @include double-extra-large{
+                font-size: 5rem;
+            }
+            @include extra-large{
+                font-size: 4rem;
+            }
+            @include mobile{
+                font-size: 2rem;
+                line-height: 2.375rem;
+            }
+
+        }
+        .img{
+            width: 58%;
+            aspect-ratio: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-3rem);
+            transition: all #{$transition-duration-on-scroll} ease-in;
+            @include mobile{
+                width: 60%;
+                transform: translateY(-3rem);
+            }
+            @include extra-small{
+                width: 80%;
+            }
+            
+            img{
+                width: 100%;
+                @include mobile{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .content{
+            color: white;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            opacity: 0;
+            transform: translateX(3rem) translateY(-50%);
+            transition: all #{$transition-duration-on-scroll} ease-in;
+            z-index: 1;
+            background-color: $blue;
+            text-align: right;
+            padding: 3.125rem 4.325rem 3.125rem;
+            box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+            background-color: black;
+            max-width: 52%;
+           @include double-extra-large{
+               max-width: 52%;
+           }
+            @include extra-large{
+                padding: 1.5rem 2rem 1.5rem;
+                max-width: 52%;
+            }
+            @include mobile{
+                width: 100%;
+                max-width: 100%;
+                top: unset;
+                position: relative;
+                transform: none;
+                padding: 1.875rem ;
+                margin-top: -2rem;
+                z-index: -1;
+                transform: translateY(3rem);
+                
+            }
+            h1{
+                margin-bottom: 1.5rem;
+                text-transform: uppercase; 
+                @include extra-large{
+                    font-size: 2.5rem;
+                }
+                @include mobile{
+                    text-align: center;
+                    font-size: 2rem;
+                    line-height: 2.125rem;
+                    margin-bottom: .625rem;
+                    margin-top: 1.25rem;
+                }
+            }
+            p{
+                font-weight: 400;
+                font-size: 1.625rem;
+                line-height: 2.5rem;
+                //max-width: 33.125rem;
+                @include extra-large{
+                    font-size: 1.2rem;
+                }
+                @include mobile{
+                    text-align: justify;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    max-width: unset;
+                    width: auto;
+                    padding: 0;
+                }
+            }
+        }
+        .rotated-outlined-text{
+            position: absolute;
+                display: block;
+                font-family: 'Raleway', sans-serif;
+                font-size: 6rem;
+                font-weight: 500;
+                -webkit-text-stroke: 3px $red;
+                color: transparent;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                opacity: 0;
+                transform: translateY(-50%) translateX( calc( (50% - 3.5rem + 4.875rem) + 3rem ) ) rotate(90deg);
+                transition: all #{$transition-duration-on-scroll} ease-in;
+                transition-delay : .75s;
+                z-index: 2;
+                @include extra-large{
+
+                    font-size: 4.5rem;
+                }
+                @include mobile{
+                    display: none;
+                }
+        }
+    }
+    &.visible{
+        .img{
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .content{
+            transform: translateX(0) translateY(-50%);
+            opacity: 1;
+        }
+        .rotated-outlined-text{
+            transform: translateY(-50%) translateX( calc( (50% - 3.5rem + 4.875rem)  ) ) rotate(90deg);
+            opacity: 1;
+        }
+        @include mobile{
+            .img{
+                transform: translateY(0);
+                opacity: 1;
+            }
+            .content{
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+}

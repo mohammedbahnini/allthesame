@@ -1,0 +1,240 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.ambassadors{
+    overflow: hidden;
+    position: relative;
+    @include mobile{
+        margin-top: 5rem;
+    }
+    .head{
+        text-align: center;
+        padding-top : 8.75rem;
+        padding-bottom: 8.125rem;
+        h1{
+            margin-bottom: 1.25rem;
+        }
+        @include mobile{
+            position: absolute;
+            top: 1.75rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            h1{
+                font-size: 1.5rem;
+                line-height: 1.75rem;
+            }
+        }
+    }
+    .gradient-title{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(calc(-50% + .25em));
+        text-align: center;
+        font-weight: 900;
+        line-height: 9.4rem;
+        font-size: 8rem;
+        letter-spacing: .5em;
+        white-space: nowrap;
+        z-index: 2;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%);
+        background-clip : text;
+        color : transparent ;
+        @include double-extra-large{
+            font-size: 5rem;
+        }
+        @include extra-large{
+            font-size: 4rem;
+        }
+        @include mobile{
+            font-size: 2rem;
+            line-height: 2.375rem;
+        }
+
+    }
+    .container{
+        @include mobile{
+           
+        }
+    }
+    .members{
+        margin: 0 7.15rem;
+        max-width: calc( 100% - 25rem);
+        margin-left: auto;
+        margin-right: auto ;
+        position: relative;
+        @include double-extra-large{
+            max-width: calc( 100% - 20rem);
+        }
+        @include extra-large{
+            max-width: calc( 100% - 15rem);
+        }
+        @include mobile{
+            padding: 0;
+            padding-top: 8rem;
+            max-width: 23.125rem;
+        }
+        .member{
+            //width: 26.875rem;
+            position: relative;            
+            margin-right: 3.125rem;
+            @include mobile{
+                margin: 0;
+                height: auto;
+                max-width: 23.125rem;
+                min-height: fit-content;
+                padding: 0 3rem;
+            }
+
+            .avatar{
+                width: 18.75rem;
+                margin-right: 0;
+                position: relative;
+                padding-bottom: 1.5rem;
+                margin-bottom: .5rem;
+                margin-left: auto;
+                margin-right: auto;
+                @include mobile{
+                    width: 100%;
+                }
+                &:hover{
+                    + .info + .description{
+                        max-height: 100vh;
+                        opacity: 1;
+                    }
+                }
+                .main-img{
+                    width: 76.666666667%;
+                    aspect-ratio: 1;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    outline: 9px solid white;
+                    outline-offset: -7px;
+                    margin: 0 auto;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .sub-img{
+                    width: 46%;
+                    aspect-ratio: 1;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    outline: 9px solid white;
+                    outline-offset: -8px;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                
+            }
+            .info{
+                text-align : center ;
+                color : white ;
+                width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+                @include mobile{
+                    width: 100%;
+                }
+                .name{
+                    margin-bottom : .5rem;
+                    color : black;
+                    @include mobile{
+                        font-size: 1.2rem;
+                        line-height: 1.2em;
+                    }
+                }
+                .role{
+                    font-family: 'Raleway';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 21px;
+                    letter-spacing: 0.2em;
+
+                    color: #000000;
+                    margin-bottom: 1.25rem;
+                    @include mobile{
+                        font-size: 1rem;
+                        line-height: 1.12520em;
+                    }
+                }
+                .social{
+                    a{
+                        display: inline-block;
+                        width: 1.419375rem;
+                        aspect-ratio: 1;
+                        color : black;
+                        font-size: 2rem;
+                        &:not(:last-child){
+                            margin-right: 1rem;
+                            @include mobile{
+                                margin-right: 0;                            
+                            }
+                        }
+                        @include mobile{
+                            font-size: 1rem;                            
+                        }
+                    }
+                }
+            }
+        }
+
+        .next-slide , .prev-slide {
+            position: absolute;
+            background-color: red;
+            width: 4.75rem !important;
+            height: 4.75rem !important;
+            aspect-ratio: 1 !important;
+            box-shadow: rgba(0,0,0,.3) 0px 10px 15px 1px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            top: 140px;
+            //transform: translateY(-50%);
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+            @include mobile{
+                display: none;
+            }
+        }
+        .prev-slide{
+            background: white url('../assets/left-arrow.svg') no-repeat center ;
+            left: -114px;
+        }
+        .next-slide{
+            background: white url('../assets/right-arrow.svg') no-repeat center ;
+            right: -114px;
+        }
+        .slick-list{
+            @include mobile{
+                max-width: 23.125rem;
+                margin: 0 auto;
+                bottom: 0;
+            }
+            
+        }
+        .slick-dots {
+            position: relative;
+            margin-top: 3rem;
+            bottom: 0;
+        }
+        .slick-dots li button::before{
+            font-size: 1.25rem;
+        }
+
+    }
+
+}

@@ -1,0 +1,148 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+
+
+.faqs{
+    overflow: hidden;
+    position: relative;
+    margin-top: 5rem;
+    background: url('../assets/faq-bg.svg') no-repeat bottom left;
+    margin-top: 17rem;
+    @include mobile{
+        background: url('../assets/faq-bg-mobile.svg') no-repeat center bottom;
+        margin-top: 5rem;
+    }
+    .head{
+        text-align: center;
+        padding-top : 8.75rem;
+        padding-bottom: 8.125rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 3rem;
+        h1{
+            margin-bottom: 1.25rem;
+        }
+        @include mobile{
+            position: absolute;
+            top: 1.75rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            h1{
+                font-size: 1.5rem;
+                line-height: 1.75rem;
+            }
+        }
+    }
+    .gradient-title{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(calc(-50% + .25em));
+        text-align: center;
+        font-weight: 900;
+        line-height: 9.4rem;
+        font-size: 8rem;
+        letter-spacing: .5em;
+        white-space: nowrap;
+        z-index: 2;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%);
+        background-clip : text;
+        color : transparent ; 
+        @include double-extra-large{
+            font-size: 5rem;
+        }
+        @include extra-large{
+            font-size: 4rem;
+        }
+        @include mobile{
+            font-size: 2rem;
+            line-height: 2.375rem;
+        }
+
+    }
+    .container{
+        width: 48rem;
+        margin-bottom: 15rem;
+        @include mobile{
+            width: 90%;
+            margin-top: 8rem;
+
+        }
+        .faq-list {
+            .faq-item{
+                border: 1px solid rgba(222, 222, 216, 1);
+                border-radius: 1.5rem;
+                transition: .5s;
+                background-color: white;
+                opacity: 0;
+                transform: translateY(-3rem);
+                &:not(:last-child){
+                    margin-bottom: 2rem;
+                }
+                .faq-header{
+                    display: flex;
+                    padding: .625rem  1.5rem;
+                    cursor: pointer;
+                    transition: .5s;
+                    h2{
+                        flex-grow: 1;
+                        @include mobile{
+                            font-size: 1rem;
+                            line-height: 1.2em;
+                        }
+                    }
+                    img{
+                        flex-shrink: 0;
+                        transform: rotate(45deg);
+                        transition: .5s;
+                    }
+                }
+                .faq-body{
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: .5s;
+                    .content{
+                        padding: 1.25rem;
+                        p{
+                            font-family: 'Poppins';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 1.625rem;
+                            line-height: 2.5rem;
+                            color: rgba(0, 0, 0, 0.65);
+                            @include mobile{
+                                font-size: .875rem;
+                                line-height: 1.5em;
+                            }
+
+                        }
+                    }
+                }
+                &.active {
+                    
+                    .faq-header{
+                        margin: .625rem .625rem 0 .625rem;
+                        box-shadow: 0px 42px 33px rgba(0, 0, 0, 0.0503198),
+                         0px 7px 5px rgba(0, 0, 0, 0.0282725), 
+                         0px 3px 2px rgba(0, 0, 0, 0.0196802);
+                        img{
+                            transform: rotate(0deg);
+                        }
+                    }
+                    .faq-body{
+                        max-height: 100vh;
+                    }
+                }
+                &.visible{
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+           
+        }
+    }
+}
