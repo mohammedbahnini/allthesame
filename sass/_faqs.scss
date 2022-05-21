@@ -8,10 +8,10 @@
     overflow: hidden;
     position: relative;
     margin-top: 5rem;
-    background: url('../assets/faq-bg.svg') no-repeat bottom left;
+    background: url('../assets/faq-bg.jpg') no-repeat bottom left;
     margin-top: 17rem;
     @include mobile{
-        background: url('../assets/faq-bg-mobile.svg') no-repeat center bottom;
+        background: url('../assets/faq-bg-mobile.jpg') no-repeat center bottom;
         margin-top: 5rem;
     }
     .head{
